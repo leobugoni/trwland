@@ -18,6 +18,7 @@ public class CustomerMapper {
 
     public static CustomerEntity toCustomerEntity(Customer customer){
         return CustomerEntity.builder()
+                .id(customer.getId())
                 .firstName(customer.getFirstName())
                 .lastName(customer.getLastName())
                 .age(customer.getAge())

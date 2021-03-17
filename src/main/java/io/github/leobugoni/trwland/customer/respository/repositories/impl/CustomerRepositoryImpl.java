@@ -22,4 +22,9 @@ public class CustomerRepositoryImpl implements CustomerRepository {
     public CustomerEntity findCustomer(Long id) {
         return customerRepository.findById(id).orElseThrow(() -> new CustomerNotFoundException(id));
     }
+
+    @Override
+    public void updateCustomer(CustomerEntity customer) {
+        customerRepository.save(customer);
+    }
 }
