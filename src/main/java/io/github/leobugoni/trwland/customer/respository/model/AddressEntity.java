@@ -25,7 +25,4 @@ public class AddressEntity {
     private String zipCode;
     private String state;
     private String country;
-    @ManyToOne
-    private CustomerEntity customer;
-
 }

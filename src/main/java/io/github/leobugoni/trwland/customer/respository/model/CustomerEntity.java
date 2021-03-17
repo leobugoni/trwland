@@ -22,9 +22,12 @@ public class CustomerEntity {
     private String age;
     private String emailAddress;
     private String phone;
-    @OneToMany(mappedBy="customer", cascade = CascadeType.ALL)
-    private Set<DocumentEntity> documents;
-    @OneToMany(mappedBy="customer", cascade = CascadeType.ALL)
-    private Set<AddressEntity> addresses;
 
+    @JoinColumn(name = "customer_id")
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<DocumentEntity> documents;
+
+    @JoinColumn(name = "customer_id")
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<AddressEntity> addresses;
 }
