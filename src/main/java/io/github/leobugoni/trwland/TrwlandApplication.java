@@ -10,7 +10,7 @@ public class TrwlandApplication {
 	static Logger logger = LoggerFactory.getLogger(TrwlandApplication.class);
 
 	public static void main(String[] args) {
-		logger.info("Teste");
+		logger.debug("Starting Application");
 		SpringApplication.run(TrwlandApplication.class, args);
 	}
 

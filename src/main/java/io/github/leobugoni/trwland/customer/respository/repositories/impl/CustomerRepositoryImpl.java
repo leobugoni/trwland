@@ -25,6 +25,10 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 
     @Override
     public void updateCustomer(CustomerEntity customer) {
-        customerRepository.save(customer);
+        if (customerRepository.existsById(customer.getId())) {
+            customerRepository.save(customer);
+        } else {
+            throw new CustomerNotFoundException(customer.getId());
+        }
     }
 }
