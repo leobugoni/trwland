@@ -18,9 +18,8 @@ public class Customer {
     private String firstName;
     private String lastName;
     private String age;
+    private String document;
     private String emailAddress;
     private String phone;
-    private Set<Document> documents;
-    private Set<Address> addresses;
 
 }

@@ -1,9 +1,13 @@
 package io.github.leobugoni.trwland.customer.respository.model;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
-import java.util.Set;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 import static javax.persistence.GenerationType.AUTO;
 
@@ -11,7 +15,7 @@ import static javax.persistence.GenerationType.AUTO;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "customer")
+@Entity(name = "customers")
 public class CustomerEntity {
 
     @Id
@@ -19,15 +23,8 @@ public class CustomerEntity {
     private Long id;
     private String firstName;
     private String lastName;
+    private String document;
     private String age;
     private String emailAddress;
     private String phone;
-
-    @JoinColumn(name = "customer_id")
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<DocumentEntity> documents;
-
-    @JoinColumn(name = "customer_id")
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<AddressEntity> addresses;
 }
